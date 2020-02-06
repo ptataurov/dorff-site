@@ -68,7 +68,6 @@
   color: #000;
   font-weight: 500;
   font-size: 14px;
-  line-height: 1;
   text-transform: uppercase;
 
   @include transition(color);
@@ -151,13 +150,10 @@
   padding-bottom: 30px;
   color: #1d1d1b;
   font-size: 20px;
-  line-height: 1;
-  border: none;
 
   &::placeholder {
     color: #1d1d1b;
     font-size: 20px;
-    line-height: 1;
   }
 }
 
