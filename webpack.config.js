@@ -95,13 +95,18 @@ const config = {
                 require('autoprefixer')(),
                 require('postcss-modules')({
                   camelCase: true,
-                  globalModulePaths: [`${dirs.src}/assets/scss/`],
+                  globalModulePaths: [
+                    `${dirs.src}/assets/scss/`,
+                    'node_modules/'
+                  ],
                   generateScopedName: (name, filename) => {
                     const isGlobal = name[0] === 'G' ? true : false
 
                     if (isGlobal) return name.substring(2)
 
-                    const hash = hasha(path.dirname(filename), {
+                    const relativePath = path.relative(process.cwd(), filename)
+
+                    const hash = hasha(relativePath, {
                       algorithm: 'md5'
                     }).substring(0, 5)
 

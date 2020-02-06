@@ -1,4 +1,4 @@
-import isTouchDevice from 'assets/js/is-touch-device.js'
+const isTouchDevice = 'ontouchstart' in window || navigator.msMaxTouchPoints
 
 const { body } = document
 

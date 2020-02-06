@@ -1,5 +1,6 @@
 .header {
   position: relative;
+  z-index: 1000;
   background: #fff;
   border-bottom: 1px solid #f2f2f2;
 }
@@ -162,6 +163,12 @@
 }
 
 // Global styles
+
+.search-form {
+  &.G-active {
+    border-color: #000;
+  }
+}
 
 .G-mobile-menu-show {
   .btn-toggle-inner {

@@ -5,7 +5,7 @@ mixin header(mixes)
 
   header(class=css.header class=mixes class='_header')
     div(class=css.searchPanel class='_search-panel')
-      form(class=css.searchForm)
+      form(class=css.searchForm class='_search-form')
         input(class=css.searchInput class='_search-input' type='text' placeholder='Поиск по сайту')
         button(class=css.searchSubmit)
           img(class=css.iconSearchSubmit src=require('views/components/header/img/i-loupe.svg') alt='Иконка')
@@ -18,7 +18,7 @@ mixin header(mixes)
       button(class=css.btnToggle class='_btn-toggle')
         span(class=css.btnToggleInner)
 
-      nav(class=css.nav class='_menu')
+      nav(class=css.nav)
         each link in links
           a(class=css.navLink href=link.href)= link.name
       

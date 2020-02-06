@@ -17,6 +17,8 @@ const pagePath = `${pages}/${name}`
 
 mkdirSync(pagePath)
 
+mkdirSync(`${pagePath}/img`)
+
 writeFileSync(
   `${pagePath}/${name}.pug`,
   `extends ~@/layout
@@ -28,14 +30,14 @@ block content
   - const data = require('./data.js')
   - const css = require('./_css.json')
 
-  div(id=css.${name}Pg)
+  div(id='${name}-pg' class=css.${name}Pg)
 
 `
 )
 
 writeFileSync(
   `${pagePath}/${name}.scss`,
-  `#${name}-pg {
+  `.${name}-pg {
 
 }
 
