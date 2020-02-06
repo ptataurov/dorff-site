@@ -107,7 +107,7 @@ const config = {
 
                     const file = path.basename(filename, '.scss')
 
-                    return `_${file}_${name}_${hash}`
+                    return `${file}_${name}_${hash}`
                   },
                   getJSON: (fileName, json) => {
                     if (_.isEmpty(json)) return
