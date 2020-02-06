@@ -1,25 +1,22 @@
-$(() => {
-  const $header = $('._header')
-  const $menu = $('._menu', $header)
-  const $btnToggle = $('._btn-toggle', $header)
+document.addEventListener('DOMContentLoaded', () => {
+  const header = document.querySelector('._header')
+  const menu = header.querySelector('._menu')
+  const btnToggle = header.querySelector('._btn-toggle')
+  const btnSearch = header.querySelector('._btn-search')
+  const searchPanel = header.querySelector('._search-panel')
+  const searchInput = searchPanel.querySelector('._search-input')
 
-  const $searchPanel = $('._search-panel', $header)
+  btnToggle.addEventListener('click', () => {
+    searchPanel.classList.remove('search-panel-show')
 
-  const $searchInput = $('._search-input', $header)
-
-  const $btnSearch = $('._btn-search', $header)
-
-  $btnToggle.click(() => {
-    $searchPanel.removeClass('search-panel-show')
-
-    $header.toggleClass('mobile-menu-show')
+    header.classList.toggle('mobile-menu-show')
   })
 
-  $btnSearch.click(() => {
-    $header.removeClass('mobile-menu-show')
+  btnSearch.addEventListener('click', () => {
+    header.classList.remove('mobile-menu-show')
 
-    $searchPanel.toggleClass('search-panel-show')
+    searchPanel.classList.toggle('search-panel-show')
 
-    $searchPanel.hasClass('search-panel-show') && $searchInput.focus()
+    searchPanel.classList.contains('search-panel-show') && searchInput.focus()
   })
 })
