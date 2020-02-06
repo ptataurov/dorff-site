@@ -6,8 +6,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const { getDirectoriesBasenames } = require('./build/utils.js')
 const _ = require('lodash')
+const hasha = require('hasha')
 const dirs = require('./build/dirs.js')
-
 const fs = require('fs')
 
 const isDev = process.env.NODE_ENV === 'development'
@@ -101,9 +101,13 @@ const config = {
 
                     if (isGlobal) return name.substring(2)
 
+                    const hash = hasha(path.dirname(filename), {
+                      algorithm: 'md5'
+                    }).substring(0, 5)
+
                     const file = path.basename(filename, '.scss')
 
-                    return `_${file}_${name}`
+                    return `_${file}_${name}_${hash}`
                   },
                   getJSON: (fileName, json) => {
                     if (_.isEmpty(json)) return
