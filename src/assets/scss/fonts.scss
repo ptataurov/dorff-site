@@ -1,0 +1,9 @@
+
+
+@include import-font('Gotham Pro', 500) {
+  src: url('../../public/fonts/ttf/GothamPro-Medium.ttf') format('truetype');
+}
+
+@include import-font('Gotham Pro', 400) {
+  src: url('../../public/fonts/ttf/GothamPro.ttf') format('truetype');
+}

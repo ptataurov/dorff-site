@@ -1,0 +1,31 @@
+include ~@/_imports
+
+doctype html
+html
+  head(lang='ru')
+    meta(charset='UTF-8')
+    block seo
+      meta(name='description', content='')
+      meta(name='keywords', content='')
+      meta(name='msapplication-TileColor' content='#ffffff')
+      meta(name='theme-color' content='#ffffff')
+
+    meta(
+      name='viewport',
+      content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0'
+    )
+    meta(
+      http-equiv='X-UA-Compatible',
+      content='ie=edge'
+    )
+    
+    block title
+      title Главная
+
+  body
+
+    +header
+
+    block content
+
+      

@@ -1,0 +1,30 @@
+mixin header(mixes)
+
+  - const { links } = require('views/components/header/data.js')
+  - const css = require('views/components/header/_css.json')
+
+  header(class=css.header class=mixes class='_header')
+    div(class=css.searchPanel class='_search-panel')
+      form(class=css.searchForm)
+        input(class=css.searchInput class='_search-input' type='text' placeholder='Поиск по сайту')
+        button(class=css.searchSubmit)
+          img(class=css.iconSearchSubmit src=require('views/components/header/img/i-loupe.svg') alt='Иконка')
+
+    div(class=css.wrap)
+
+      a(class=css.logoLink href='index.html')
+        img(class=css.logo src=require('public/img/logo.svg') alt='Логотип')
+
+      button(class=css.btnToggle class='_btn-toggle')
+        span(class=css.btnToggleInner)
+
+      nav(class=css.nav class='_menu')
+        each link in links
+          a(class=css.navLink href=link.href)= link.name
+      
+      div(class=css.bar)
+        button(class=css.btnLocation)
+          img(class=css.iconLocation src=require('views/components/header/img/i-place.svg') alt='Иконка')
+        button(class=css.btnSearch class='_btn-search')
+          img(class=css.iconSearch src=require('views/components/header/img/i-loupe.svg') alt='Иконка')
+
