@@ -97,14 +97,14 @@ const config = {
                   camelCase: true,
                   globalModulePaths: [
                     `${dirs.src}/assets/scss/`,
-                    'node_modules/'
+                    './node_modules/'
                   ],
                   generateScopedName: (name, filename) => {
                     const isGlobal = name[0] === 'G' ? true : false
 
                     if (isGlobal) return name.substring(2)
 
-                    const relativePath = path.relative(process.cwd(), filename)
+                    const relativePath = path.relative(__dirname, filename)
 
                     const hash = hasha(relativePath, {
                       algorithm: 'md5'
