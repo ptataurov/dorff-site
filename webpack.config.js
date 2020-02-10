@@ -110,9 +110,7 @@ const config = {
                       algorithm: 'md5'
                     }).substring(0, 5)
 
-                    const file = path.basename(filename, '.scss')
-
-                    return `${file}_${name}_${hash}`
+                    return `${name}_${hash}`
                   },
                   getJSON: (fileName, json) => {
                     if (_.isEmpty(json)) return
