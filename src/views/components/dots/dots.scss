@@ -1,0 +1,35 @@
+.dots {
+  display: flex;
+
+  span {
+    width: 7px;
+    height: 7px;
+    background: #000;
+    border-radius: 50%;
+
+    &:last-child {
+      margin-left: 5px;
+      background: #e42313;
+    }
+  }
+}
+
+// Global styles
+
+// Media queries
+
+@include less-xl {
+}
+
+@include less-lg {
+}
+
+@include less-md {
+}
+
+@include less-sm {
+}
+
+// Mixes
+
+// Animation

@@ -1,4 +1,15 @@
 .btn {
+  padding: 19px 40px;
+  color: #fff;
+  font-weight: 500;
+  font-size: 14px;
+  background: #000;
+
+  @include transition(background);
+
+  &:hover {
+    background: lighten(#000, 10%);
+  }
 }
 
 // Media queries
