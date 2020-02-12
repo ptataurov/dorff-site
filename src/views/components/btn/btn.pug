@@ -1,9 +1,9 @@
-mixin btn({ name, href }, mixes)
+mixin btn({ name, href, classes }, mixes)
 
   - const data = require('views/components/btn/data.js')
   - const css = require('views/components/btn/_css.json')
 
   if (href)
-    a(class=css.btn class=mixes href=href)= name
+    a(class=css.btn class=classes class=mixes href=href)= name
   else
     button(class=css.btn class=mixes)= name

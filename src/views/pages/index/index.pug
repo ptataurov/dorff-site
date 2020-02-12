@@ -12,22 +12,24 @@ block content
     div(class=css.slider class='_slider swiper-container')
       div(class=css.sliderWrap class='swiper-wrapper')
         each slide in slider
-          div(class=css.slide class='swiper-slide')
+          div(class=css.slide class='swiper-slide' data-text=slide.dataText data-href=slide.href)
             img(class=css.slideImg src=require('./img/slide-1.png') alt='Изображение')
             div(class=css.slideContent)
               span(class=css.slideCollection) Коллекция
               h6(class=css.slideCollectionName)= slide.name
               p(class=css.slideText)= slide.text
-      
-      //- div(class=css.sliderNav)
-      //-   button(class=css.sliderBtnPrev class='_prev')
-      //-     img(class=css.sliderArrow src=require('./img/arrow.svg') alt='Изображение')
-      //-   button(class=css.sliderBtnNext class='_next')
-      //-     img(class=css.sliderArrow src=require('./img/arrow.svg') alt='Изображение')
 
       div(class=css.sliderPagination class='_pagination')
 
-      div(class=css.sliderBottom)
-        p(class=css.sliderBottomText) В коллекции Norma мы собрали все востребованные продукты в самом практичном дизайне, который точно подойдет Вашему интерьеру и останется актуальным на долгие годы. Неважно, какого размера Ваша раковина: чтобы пользоваться смесителем было удобно, мы предусмотрели модели и для большого, и для маленького размера. А цена по сравнению с аналогами выглядит очень убедительно для тех, кто не привык бездумно относиться к покупкам для дома.
-        +btn({ name: 'Все продукты коллекции', href: '#' }, css.slider)
-        +dots
+    div(class=css.collection class='_collection')
+      div(class=css.collectionContent)
+        p(class=css.collectionText class='_text') <span class='medium'>В коллекции Norma</span> мы собрали все востребованные продукты в самом практичном дизайне, который точно подойдет Вашему интерьеру и останется актуальным на долгие годы. Неважно, какого размера Ваша раковина: чтобы пользоваться смесителем было удобно, мы предусмотрели модели и для большого, и для маленького размера. А цена по сравнению с аналогами выглядит очень убедительно для тех, кто не привык бездумно относиться к покупкам для дома.
+        div(class=css.collectionNav class='_slider-nav')
+          button(class=css.collectionBtnPrev class='_prev disabled')
+            img(class=css.collectionArrow src=require('./img/arrow.svg') alt='Изображение')
+          button(class=css.collectionBtnNext class='_next')
+            img(class=css.collectionArrow src=require('./img/arrow.svg') alt='Изображение')
+
+      footer(class=css.collectionFooter)
+        +btn({ name: 'Все продукты коллекции', href: '#', classes: '_link' }, css.btnCollection)
+        +dots(css.dotsCollection)

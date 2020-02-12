@@ -6,13 +6,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (!page) return
 
-  new Swiper('._slider.swiper-container', {
-    slidesPerView: 1,
-    loop: true,
+  const collection = page.querySelector('._collection')
+  const collectionText = collection.querySelector('._text')
+  const collectionLink = collection.querySelector('._link')
 
+  const slider = new Swiper('._slider.swiper-container', {
+    init: false,
+    slidesPerView: 1,
     navigation: {
-      prevEl: '._slider ._prev',
-      nextEl: '._slider ._next'
+      prevEl: '._slider-nav ._prev',
+      nextEl: '._slider-nav ._next',
+      disabledClass: 'disabled'
     },
 
     pagination: {
@@ -21,9 +25,27 @@ document.addEventListener('DOMContentLoaded', () => {
       bulletClass: '_bullet',
       bulletActiveClass: 'active',
       modifierClass: null,
-      renderBullet: (index, className) => {
+      renderBullet: (idx, className) => {
         return `<span class="${className}"><span></span></span>`
       }
     }
   })
+
+  const handler = () => {
+    const { slides, activeIndex } = slider
+
+    const activeSlide = slides[activeIndex]
+
+    const text = activeSlide.dataset.text
+    const href = activeSlide.dataset.href
+
+    collectionText.innerHTML = text
+    collectionLink.href = href
+  }
+
+  slider.on('init', handler)
+
+  slider.on('slideChange', handler)
+
+  slider.init()
 })

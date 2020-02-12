@@ -3,6 +3,7 @@
 
 .slider {
   position: relative;
+  margin-bottom: 60px;
 }
 
 .slide {
@@ -32,7 +33,6 @@
 }
 
 .slide-collection-name {
-  margin-bottom: 40px;
   color: #fff;
   font-weight: 500;
   font-size: 96px;
@@ -40,41 +40,10 @@
 }
 
 .slide-text {
+  margin-top: 40px;
   color: #fff;
   font-size: 16px;
   line-height: 1.5;
-}
-
-.slider-nav {
-  position: absolute;
-  bottom: 10%;
-  left: 50%;
-  z-index: 10;
-  display: flex;
-  width: 100%;
-  max-width: 640px;
-  margin-left: -8px;
-  transform: translateX(-50%);
-}
-
-.slider-btn-prev,
-.slider-btn-next {
-  display: flex;
-  padding: 8px;
-
-  @include transition(opacity);
-
-  &:hover {
-    opacity: 0.5;
-  }
-}
-
-.slider-btn-prev {
-  transform: scale(-1, 1);
-}
-
-.slider-btn-next {
-  margin-left: 14px;
 }
 
 .slider-pagination {
@@ -97,6 +66,12 @@
       margin-bottom: 14px;
     }
 
+    &.G-active {
+      span {
+        background: transparent;
+      }
+    }
+
     span {
       width: 8px;
       height: 8px;
@@ -109,32 +84,119 @@
   }
 }
 
+.collection {
+  margin-bottom: 40px;
+
+  @include wrap;
+}
+
+.collection-content {
+  display: flex;
+  align-items: flex-start;
+}
+
+.collection-text {
+  max-width: 640px;
+  margin-bottom: 30px;
+  color: #1d1d1b;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.collection-footer {
+  display: flex;
+  align-items: center;
+}
+
+.collection-nav {
+  display: flex;
+  margin-right: -8px;
+  margin-left: auto;
+}
+
+.collection-btn-prev,
+.collection-btn-next {
+  display: flex;
+  padding: 8px;
+
+  @include transition(opacity);
+
+  &:hover {
+    opacity: 0.5;
+  }
+
+  &.G-disabled {
+    opacity: 0.2;
+  }
+}
+
+.collection-btn-prev {
+  transform: scale(-1, 1);
+}
+
+.collection-btn-next {
+  margin-left: 14px;
+}
+
 // Media queries
 
 @include less-xl {
 }
 
 @include less-lg {
+  .slider {
+    margin-bottom: 20px;
+  }
+
+  .slide-text {
+    display: none;
+  }
+
+  .slider-pagination {
+    display: none;
+  }
+
+  .collection-content {
+    flex-direction: column-reverse;
+  }
+
+  .collection-nav {
+    margin-bottom: 24px;
+  }
 }
 
 @include less-md {
+  .slide-content {
+    margin-left: 24px;
+  }
 }
 
 @include less-sm {
+  .slide-collection-name {
+    font-size: 56px;
+  }
 }
 
 // Global styles
 
-.slider-pagination {
-  > span {
-    &.G-active {
-      span {
-        background: transparent;
-      }
+// Mixes
+
+.collection {
+  .dots-collection {
+    margin-left: auto;
+
+    @include less-sm {
+      display: none;
     }
   }
 }
 
-// Mixes
+.btn-collection {
+  display: inline-block;
+
+  @include less-sm {
+    width: 100%;
+  }
+}
 
 // Animation
