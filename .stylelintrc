@@ -1,8 +1,8 @@
 {
-    "extends": ["stylelint-config-rational-order"],
+    "extends": ["stylelint-config-rational-order", "./node_modules/prettier-stylelint/config.js"],
     "rules": {
       "color-hex-case": "lower",
       "color-hex-length": "short",
-      "declaration-empty-line-before": "never"
+      "declaration-empty-line-before": "never",
     }
 }
