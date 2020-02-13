@@ -3,6 +3,6 @@
     "rules": {
       "color-hex-case": "lower",
       "color-hex-length": "short",
-      "declaration-empty-line-before": "never",
+      "declaration-empty-line-before": "never"
     }
 }
