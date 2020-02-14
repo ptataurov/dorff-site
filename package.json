@@ -9,7 +9,7 @@
     "build:afterEnv": "rm -rf ./dist && webpack -p",
     "create::component": "node ./build/node_scripts/create-component.js",
     "create::page": "node ./build/node_scripts/create-page.js",
-    "update::imports": "cross-env RUN=yes node ./build/node_scripts/update-imports.js",
+    "update::imports": "node ./build/node_scripts/update-imports.js",
     "c::c": "yarn create::component",
     "c::p": "yarn create::page",
     "u": "yarn update::imports"

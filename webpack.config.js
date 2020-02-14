@@ -12,6 +12,8 @@ const fs = require('fs')
 
 const isDev = process.env.NODE_ENV === 'development'
 
+const projectName = process.env.npm_package_name
+
 const pages = getDirectoriesBasenames(dirs.pages)
 
 const instances = pages.map(page => {
@@ -106,7 +108,7 @@ const config = {
 
                     const relativePath = path.relative(__dirname, filename)
 
-                    const hash = hasha(relativePath, {
+                    const hash = hasha(relativePath + projectName, {
                       algorithm: 'md5'
                     }).substring(0, 5)
 

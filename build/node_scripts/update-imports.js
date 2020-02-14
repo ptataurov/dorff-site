@@ -44,7 +44,7 @@ import '${path}/${name}/${name}.scss'
   })
 }
 
-if (process.env.RUN === 'yes') {
+if (process.env.npm_lifecycle_event === 'update::imports') {
   try {
     updateImports()
     console.log('Successfully updated')
